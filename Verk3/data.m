@@ -1,10 +1,10 @@
 %% EÐL207G Verk 3
 % Lögmál Ohm og geislunarafl ljósaperu
-%% 2
+%% 2 TILRAUN
 format shortE
 err = 0.01;
-%% 2.1 TILRAUN 
-% 1 & 2
+%% 2.1  
+%% _1 & 2_
 AradTengt = 4.767e-3 % A Raðtengt
 AradTengtErr = AradTengt*err
 %%
@@ -17,7 +17,7 @@ AhlidTengtErr = AhlidTengt*err
 VhlidTengt = 0.831 % V Hliðtengt
 VhlidTengtErr = VhlidTengt*err
 %% 
-% 3 & 4
+%% _3 & 4_
 Rrad = VradTengt/AradTengt
 RradErr = Rrad*2*err
 Rhlid = VhlidTengt/AhlidTengt
@@ -26,7 +26,7 @@ RhlidErr = Rhlid*2*err
 RradMdl = 100 + 100
 RhlidMdl = (100*100)/(100+100)
 %% 
-% 5
+%% _5_
 Wrad = AradTengt*VradTengt
 WradErr = Wrad*err*2
 Whlid = AhlidTengt*VhlidTengt
@@ -46,7 +46,7 @@ errorbar(V,R,Rerror,Rerror,Verror,Verror)
 %%
 % Nei, viðnám er háð spennu
 %% 2.3
-% 1
+%% _1_
 P = A.*V
 alpha = 4.40e-3;
 T0 = 22.6+273.15
@@ -58,14 +58,15 @@ T4 = T.^4
 T4error = 4*T4.*Terror.*T.^-1
 Perror = (zeros(1,length(P))+1).*err*2.*P
 %%
-% 2
+%% _2_
 fig = figure(1);
 errorbar(T4,P,Perror,Perror,T4error,T4error)
 %%
-% 3
+%% _3_
 slope = polyfit(T4,P,1);
 slope = slope(1)
 %%
+
 blbDiam = 30e-6;
 rhoW = 5.6e-8;
 
