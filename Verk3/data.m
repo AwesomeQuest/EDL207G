@@ -1,12 +1,24 @@
 %% EÐL207G Verk 3
-% Lögmál Ohm og geislunarafl ljósaperu
+%% Inngangur
+% Mikael Sævar Scheving Eggertsson 
+%
+% Torfi Þorgrímsson
+%
+% Leiðbeinandi: Unnar Bjarni Arnalds
+%
+% Framkvæmt 24.02.22 
+% 
+% Í tilrauninni var skoðað eiginleika straums og spennu í rafrásum með jafnspennu. Borið var saman viðnám í rað- og hliðtengdri rafrás. Ólínulegt viðnám ljósaperu var útreiknað og síðan borið saman við lögmál Stefan-Boltzmann um geislunarafl. Niðurstöðurnar stóðust við líkönin í öllum tilvikum.
+%
 %% 2 TILRAUN
 format shortE
 err = 0.01;
 %% 2.1  
 %%
 % Spenna og straumur er mæld í rafrás (sem er tengd við spennu- og straummæli) við tvö tilfelli þegar hún er bæði raðtengd og hliðtengd. Frá þessum gildum er afl reiknað í báðum tilvikum og borið saman.
-
+%% 
+% <<C:\Users\torfi\Documents\Skoli\V2022\EDL207G\Verk3\2.1_vidnam_mynd.png>>
+% 
 %% _1 & 2_
 % (1) $\frac{\Delta V}{V}=\frac{\Delta A}{A}=0.01$ 
 AradTengt = 4.767e-3; % A Raðtengt
@@ -43,7 +55,7 @@ Rhlid = VhlidTengt/AhlidTengt;
 RhlidErr = Rhlid*2*err;
 
 %%
-% Líkan
+% Líkan:
 % 
 % (4) Raðtengt
 %  $R_{tot} = R_{1} + R_{2}$
@@ -76,14 +88,19 @@ WhlidErrr = round(WhlidErr, 1,'significant');
 tbl = ["" "Afl" "±" ; "Raðtengd" Wradr WradErrr; "Hliðtengd" Whlidr WhlidErrr];
 disp(tbl)
 %%
-% Meira afl í hliðtengdu
+% Út frá mælingum sjáum við að það er mun meira afl í hliðtengdu rásinni.
 
 
 %% 2.2
 %%
 % Ljósapera er tengd við spennugjafa ásamt spennu- og straummæli. Út frá lögmáli ohms er R0 mælt. Tilraunin er endurtekinn 8 sinnum á bilunum frá 1V - 8V.
-
-% volt plan 0,1,2,3,4,5,6,7,8 [V]
+% 
+% <<C:\Users\torfi\Documents\Skoli\V2022\EDL207G\Verk3\2.2_ljos_mynd.png>>
+% 
+% V inn: 0,1,2,3,4,5,6,7,8 [V]
+%
+% #
+%
 V = [10.6e-3,0.480,1.229,2.130,3.081,4.03,5.00,5.97,6.95];
 A = [2.983,50.51,80.95,109.38,134.34,156.12,176.07,194.39,211.51]*1e-3;
 R = V./A;
@@ -154,36 +171,63 @@ ylabel("Afl W")
 %
 %%
 
-%
+
 %%
 % Fastar:
 %
-% $\alpha = 4.4.40e-3K^1$
+% $\alpha = 4.40e-3K^{-1}$
+% 
+% $\alpha$ er stuðull sem lísir hvernig viðnám breitist með hita stigi
 %
 % $D =  30 \mu m$
+% 
+% $D$ er þvermál ljósaperuvírsins 
 %
-% $\sigma = 5.67e-8 Wm^2 K^-4$
+%
+% $\sigma = 5.67e-8 Wm^2 K^{-4}$
+%
+% $\sigma$ er Stefan-Boltzmann fastinn
+% 
+% $\rho = 5.6e-8$
+%
+% $\rho$ er eðlisviðnám perunnar 
 %%
 % Líkan:
 % 
-% (10) $P= \sigma \epsilon ST^4$
+% (10) $S= \frac{R_{0} \pi ^2 D^3}{4 \rho}$
 %
-% (11) $S= \frac{R_{0} \pi ^2 D^3}{4 \rho}$
+% (11) $\Delta S = S*(\frac{ \Delta R_{0}}{R_{0}})$
+% 
+% $S$ er yfirborðsflatarmál vírsins
+
+%%
 %
-% (12) $\Delta S = S*(\frac{ \Delta R_{0}}{R_{0}})$
+S = (R(1)*pi^2*D^3)*(4*rhoW)^-1
+Serror = S*Rerror(1)*R(1)^-1
+%%
 %
-% (13) $\Delta h = h * (\frac{\Delta y_{a}+\Delta y_{b}}{y}+\frac{\Delta x_{a}+\Delta x_{b}}{x})$
+% (12) $P= \sigma \epsilon ST^4$
+% 
+% $P$ er afl notkun perunar, reiknað með lögmál Ohms
+% 
+% (13) $\Delta h = h * (\frac{\Delta y_{a}+\Delta y_{b}}{y_{b}}+\frac{\Delta x_{a}+\Delta x_{b}}{x_{b}})$
+%
+% Hallatalan ($h$) er fyrir $P$ sem fall af $T^4$
+%
+
+%%
+%
 h = polyfit(T4,P,1);
 h = h(1)
 hError = h*((T4error(1)+T4error(9))/(T(9)^4)+(Perror(1)+Perror(9))/P(9))
+%%
+% $\epsilon$ er eðlisgeislun Wolfram
+%
 
-D = 30e-6
-rhoW = 5.6e-8
+D = 30e-6;
+rhoW = 5.6e-8;
 
-S = (R(1)*pi^2*D^3)*(4*rhoW)^-1
-Serror = S*Rerror(1)*R(1)^-1
-
-sigma = 5.670367e-8
+sigma = 5.670367e-8;
 
 epsilon = h*sigma^-1*S^-1
 epsilonError = epsilon*(hError/h+Serror/S)
@@ -191,5 +235,12 @@ epsilonError = epsilon*(hError/h+Serror/S)
 
 close(fig)
 
-options.format = 'pdf';
-options.showCode = false;
+%% 
+%% Niðurstöður 
+%
+% Í tilraun 2.1 sést augljóslega að það er meiri spenna í hliðtengdu en í raðtengdu, meira að segja langt innann skekkjumarka. Sú niðurstaða fylgir líkaninu fyrir hliðtengdum og raðtengdum rafrása. 
+%
+% Grafið úr mælingunum og útreikningunum í tilraun 2.2 sýnir klárlega að viðnámið er vel háð spennunni sem er lögð í gegnum peruna, viðnámið var ekki línulegt sem var átt von á. 
+%
+% Í tilraun 2.3 heppnuðust útreikningar á yfirborðsflatarmáli vírsins frekar vel með aðeins 2% óvissu. Hins vegar voru niðurstöðurnar um eðlisgeislun með mun stærri óvissu um  20%, því óvissan er svo stór að það er ekki hægt að taka mikil mörk á henni. 
+%
