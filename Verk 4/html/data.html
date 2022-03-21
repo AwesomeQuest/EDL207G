@@ -1,0 +1,309 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>data</title><meta name="generator" content="MATLAB 9.11"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-03-21"><meta name="DC.source" content="data.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">E&ETH;L207G Verk 4</a></li><li><a href="#2">3.1</a></li><li><a href="#3">3.2</a></li><li><a href="#4"><i>1-3</i></a></li><li><a href="#5"><i>4</i></a></li><li><a href="#6">3.3</a></li><li><a href="#7"><i>1</i></a></li><li><a href="#8"><i>2</i></a></li></ul></div><h2 id="1">E&ETH;L207G Verk 4</h2><pre class="codeinput">err = 0.01;
+</pre><h2 id="2">3.1</h2><pre class="codeinput">innraVid = 53; <span class="comment">%ohm</span>
+</pre><h2 id="3">3.2</h2><h2 id="4"><i>1-3</i></h2><pre class="codeinput">v_r = 0.6047; <span class="comment">%volt</span>
+</pre><h2 id="5"><i>4</i></h2><pre class="codeinput">R = 5e3;
+C = 10e-9;
+
+v_r = [2.88 2.4 1.6 1.08 0.72 0.48 0.36 0.24];
+t = [0 10 30 50 70 90 110 130]*1e-6;
+k = 1/((R+innraVid)*C)
+slope = polyfit(v_r, t, 1);
+slope = slope(1)
+v_rerror = v_r.*err;
+terrror = t.*err;
+
+kMes = (log(v_r(1))-log(v_r)).*t.^-1
+kMesErr = 1./(t.*v_r).*v_rerror+(log(v_r(1))-log(v_r))./t.^2.*terrror
+tau = 1./kMes
+figure(1)
+errorbar(t,v_r,v_rerror,v_rerror,terrror,terrror); hold <span class="string">on</span>;
+x = linspace(0, 150e-6, 100);
+mdl = v_r(1)*exp(-k.*x);
+plot(x,mdl)
+hold <span class="string">off</span>;
+
+xlabel(<span class="string">'[s]'</span>)
+ylabel(<span class="string">'[V]'</span>)
+legend(<span class="string">'M&aelig;lt'</span>, <span class="string">'V_0e^{-kt}'</span>)
+</pre><pre class="codeoutput">k =
+   1.9790e+04
+slope =
+  -4.5142e-05
+kMes =
+  Columns 1 through 6
+          NaN   1.8232e+04   1.9593e+04   1.9617e+04   1.9804e+04   1.9908e+04
+  Columns 7 through 8
+   1.8904e+04   1.9115e+04
+kMesErr =
+  Columns 1 through 6
+          NaN   1.1823e+03   5.2926e+02   3.9617e+02   3.4090e+02   3.1020e+02
+  Columns 7 through 8
+   2.7995e+02   2.6807e+02
+tau =
+  Columns 1 through 6
+          NaN   5.4848e-05   5.1039e-05   5.0977e-05   5.0494e-05   5.0230e-05
+  Columns 7 through 8
+   5.2899e-05   5.2316e-05
+</pre><img vspace="5" hspace="5" src="data_01.png" alt=""> <h2 id="6">3.3</h2><h2 id="7"><i>1</i></h2><pre class="codeinput">R = 110;
+L = 10e-3;
+
+t = [16 48 79.5 112 142 173.5 204.5 236.5]*1e-6;
+v_r = [0.576 -0.432 0.328 -0.24 0.176 -0.128 0.096 -0.072];
+terror = t.*err;
+v_rerror = v_r.*err;
+
+<span class="comment">% figure(2);</span>
+
+<span class="comment">% errorbar(t,v_r, v_rerror,v_rerror,terror,terror);</span>
+
+t_mdl = linspace(0,2.4e-4,1e5);
+b = R/(2*L)
+
+R = 110;
+omega_0 = ((1/(L*C))^0.5)
+omega_e = (omega_0^2-b^2)^0.5
+
+
+syms <span class="string">A</span> <span class="string">l</span>;
+eq1 = A*exp(-l*t(1))*sin(omega_0*t(1)) == v_r(1);
+eq2 = A*exp(-l*t(7))*sin(omega_0*t(7)) == v_r(7);
+Andl = solve([eq1 eq2], [A l]);
+lambda = double(Andl.l)
+A = double(Andl.A)
+
+f2  = @(p) p(1) * sin(p(2) * t_mdl - p(3)) .* exp(-p(4) * t_mdl);
+<span class="comment">%      v_r(1)*1.19                      b*1.7</span>
+p20 = [A            omega_0     0   lambda]
+
+hold <span class="string">on</span>;
+<span class="comment">% plot(t_mdl, f2(p20));</span>
+hold <span class="string">off</span>;
+
+xlabel(<span class="string">'[s]'</span>)
+ylabel(<span class="string">'[V]'</span>)
+legend(<span class="string">'M&aelig;lt'</span>, <span class="string">'Best fit, for p(1)&amp;p(7)'</span>)
+</pre><pre class="codeoutput">b =
+        5500
+omega_0 =
+      100000
+omega_e =
+   9.9849e+04
+lambda =
+   9.5053e+03
+A =
+   6.7090e-01
+p20 =
+   6.7090e-01   1.0000e+05            0   9.5053e+03
+</pre><img vspace="5" hspace="5" src="data_02.png" alt=""> <h2 id="8"><i>2</i></h2><pre class="codeinput">n = 0:0.5:3.5;
+x0 = linspace(0, 2.49e-4);
+y0 = polyval(polyfit(t,n,1), x0);
+fig3 = figure(3);
+yyaxis <span class="string">left</span>
+errorbar(t,n,zeros(1,8),zeros(1,8),terror,terror,<span class="string">'b-'</span>,<span class="string">'LineWidth'</span>,0.1);
+hold <span class="string">on</span>;
+plot(x0,y0,<span class="string">'r--'</span>, <span class="string">'LineWidth'</span>, 0.1)
+yyaxis <span class="string">right</span>
+plot(t_mdl, f2(p20),<span class="string">'g-'</span>,<span class="string">'LineWidth'</span>,0.1);
+errorbar(t,v_r, v_rerror,v_rerror,terror,terror,<span class="string">'k-'</span>,<span class="string">'LineWidth'</span>,0.1);
+
+hold <span class="string">off</span>;
+
+yyaxis <span class="string">left</span>
+xlabel(<span class="string">'[s]'</span>)
+ylabel(<span class="string">'[n]'</span>)
+
+gca.YColor = <span class="string">'k'</span>;
+
+legend(<span class="string">'M&aelig;lt'</span>, <span class="string">'Best fit'</span>, <span class="string">'Best fit, for p(1)&amp;p(7)'</span>, <span class="string">'M&aelig;lt'</span>, <span class="string">'Position'</span>,[0.5 0.7 0.1 0.2])
+yyaxis <span class="string">right</span>
+
+gca.YColor = <span class="string">'b'</span>;
+
+ylabel(<span class="string">'[V]'</span>)
+
+n = 1:0.5:4.5;
+mesOmega_e = 2*pi./t.*(n+1/4)
+</pre><pre class="codeoutput">mesOmega_e =
+  Columns 1 through 6
+   4.9087e+05   2.2907e+05   1.7783e+05   1.5427e+05   1.4381e+05   1.3580e+05
+  Columns 7 through 8
+   1.3058e+05   1.2620e+05
+</pre><img vspace="5" hspace="5" src="data_03.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% EÐL207G Verk 4
+err = 0.01;
+%% 3.1
+innraVid = 53; %ohm
+
+
+%% 3.2
+%% _1-3_
+v_r = 0.6047; %volt
+%% _4_
+R = 5e3;
+C = 10e-9;
+
+v_r = [2.88 2.4 1.6 1.08 0.72 0.48 0.36 0.24];
+t = [0 10 30 50 70 90 110 130]*1e-6;
+k = 1/((R+innraVid)*C)
+slope = polyfit(v_r, t, 1);
+slope = slope(1)
+v_rerror = v_r.*err;
+terrror = t.*err;
+
+kMes = (log(v_r(1))-log(v_r)).*t.^-1
+kMesErr = 1./(t.*v_r).*v_rerror+(log(v_r(1))-log(v_r))./t.^2.*terrror
+tau = 1./kMes
+figure(1)
+errorbar(t,v_r,v_rerror,v_rerror,terrror,terrror); hold on;
+x = linspace(0, 150e-6, 100);
+mdl = v_r(1)*exp(-k.*x);
+plot(x,mdl)
+hold off;
+
+xlabel('[s]')
+ylabel('[V]')
+legend('Mælt', 'V_0e^{-kt}')
+
+%% 3.3
+%% _1_
+R = 110;
+L = 10e-3;
+
+t = [16 48 79.5 112 142 173.5 204.5 236.5]*1e-6;
+v_r = [0.576 -0.432 0.328 -0.24 0.176 -0.128 0.096 -0.072];
+terror = t.*err;
+v_rerror = v_r.*err;
+
+% figure(2);
+
+% errorbar(t,v_r, v_rerror,v_rerror,terror,terror); 
+
+t_mdl = linspace(0,2.4e-4,1e5);
+b = R/(2*L)
+
+R = 110;
+omega_0 = ((1/(L*C))^0.5)
+omega_e = (omega_0^2-b^2)^0.5
+
+
+syms A l;
+eq1 = A*exp(-l*t(1))*sin(omega_0*t(1)) == v_r(1);
+eq2 = A*exp(-l*t(7))*sin(omega_0*t(7)) == v_r(7);
+Andl = solve([eq1 eq2], [A l]);
+lambda = double(Andl.l)
+A = double(Andl.A)
+
+f2  = @(p) p(1) * sin(p(2) * t_mdl - p(3)) .* exp(-p(4) * t_mdl);
+%      v_r(1)*1.19                      b*1.7
+p20 = [A            omega_0     0   lambda]
+
+hold on;
+% plot(t_mdl, f2(p20));
+hold off;
+
+xlabel('[s]')
+ylabel('[V]')
+legend('Mælt', 'Best fit, for p(1)&p(7)')
+
+%% _2_
+n = 0:0.5:3.5;
+x0 = linspace(0, 2.49e-4);
+y0 = polyval(polyfit(t,n,1), x0);
+fig3 = figure(3);
+yyaxis left
+errorbar(t,n,zeros(1,8),zeros(1,8),terror,terror,'b-','LineWidth',0.1); 
+hold on;
+plot(x0,y0,'rREPLACE_WITH_DASH_DASH', 'LineWidth', 0.1)
+yyaxis right
+plot(t_mdl, f2(p20),'g-','LineWidth',0.1);
+errorbar(t,v_r, v_rerror,v_rerror,terror,terror,'k-','LineWidth',0.1); 
+
+hold off;
+
+yyaxis left
+xlabel('[s]')
+ylabel('[n]')
+
+gca.YColor = 'k';
+
+legend('Mælt', 'Best fit', 'Best fit, for p(1)&p(7)', 'Mælt', 'Position',[0.5 0.7 0.1 0.2])
+yyaxis right
+
+gca.YColor = 'b';
+
+ylabel('[V]')
+
+n = 1:0.5:4.5;
+mesOmega_e = 2*pi./t.*(n+1/4)
+##### SOURCE END #####
+--></body></html>

@@ -43,9 +43,9 @@ v_r = [0.576 -0.432 0.328 -0.24 0.176 -0.128 0.096 -0.072];
 terror = t.*err;
 v_rerror = v_r.*err;
 
-figure(2);
+% figure(2);
 
-errorbar(t,v_r, v_rerror,v_rerror,terror,terror); 
+% errorbar(t,v_r, v_rerror,v_rerror,terror,terror); 
 
 t_mdl = linspace(0,2.4e-4,1e5);
 b = R/(2*L)
@@ -67,7 +67,7 @@ f2  = @(p) p(1) * sin(p(2) * t_mdl - p(3)) .* exp(-p(4) * t_mdl);
 p20 = [A            omega_0     0   lambda]
 
 hold on;
-plot(t_mdl, f2(p20));
+% plot(t_mdl, f2(p20));
 hold off;
 
 xlabel('[s]')
@@ -76,17 +76,31 @@ legend('Mælt', 'Best fit, for p(1)&p(7)')
 
 %% _2_
 n = 0:0.5:3.5;
-x0 = linspace(0, 3e-4);
+x0 = linspace(0, 2.49e-4);
 y0 = polyval(polyfit(t,n,1), x0);
-figure(3)
-errorbar(t,n,zeros(1,8),zeros(1,8),terror,terror); 
+fig3 = figure(3);
+yyaxis left
+errorbar(t,n,zeros(1,8),zeros(1,8),terror,terror,'b-','LineWidth',0.1); 
 hold on;
 plot(x0,y0,'r--', 'LineWidth', 0.1)
+yyaxis right
+plot(t_mdl, f2(p20),'g-','LineWidth',0.1);
+errorbar(t,v_r, v_rerror,v_rerror,terror,terror,'k-','LineWidth',0.1); 
+
 hold off;
 
+yyaxis left
 xlabel('[s]')
 ylabel('[n]')
-legend('Mælt', 'Best fit')
+
+gca.YColor = 'k';
+
+legend('Mælt', 'Best fit', 'Best fit, for p(1)&p(7)', 'Mælt', 'Position',[0.5 0.7 0.1 0.2])
+yyaxis right
+
+gca.YColor = 'b';
+
+ylabel('[V]')
 
 n = 1:0.5:4.5;
 mesOmega_e = 2*pi./t.*(n+1/4)
