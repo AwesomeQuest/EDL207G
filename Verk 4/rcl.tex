@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc} \usepackage[icelandic]{babel}
 \usepackage{latexsym,amssymb,amsmath}
 \usepackage{pgfplots}
+\usepackage{float}
 \usepackage[absolute,overlay]{textpos}
 \newcounter{marknumber}
 \pgfplotsset{
@@ -33,13 +34,47 @@
 
 \begin{document}
 
-\begin{table}[]
-    \begin{tabular}{lllll}
-     &  &  &  &  \\
-     &  &  &  &  \\
-     &  &  &  &  \\
-     &  &  &  & 
+
+\centerline{\bf \Huge EÐL207G Verkefni 4 RCL}
+\centerline{\bf Mikael Sævar Scheving Eggertsson, Torfi Þorgrímsson}
+
+\centerline{\bf \large }
+
+\tableofcontents
+
+\section{}
+\subsection{}
+%3.1
+
+$R_innra$ = 53ohm
+
+\subsection{}
+% 3.2 
+\begin{table}[H]
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    $V_R(t) [V]$  & 2.88 & 2.40 & 1.60 & 1.08 & 0.72 & 0.48 & 0.36 & 0.24  \\
+    \hline
+    t[$\mu s$] & 0 & 10 & 30 & 50 & 70 & 90 & 110 & 130  \\
+    \hline
     \end{tabular}
 \end{table}
+ 
+%insert graf Vr af t 
+
+\subsection{}
+% 3.3
+\begin{table}[H]
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    $V_R(t) [V]$  & 0.576 & -0.432 & 0.328 & -2.40 & 0.176 & -0.128 & 0.096 & -0.072 \\
+    \hline
+    t[$\mu s$]    & 16.0 & 48.0 & 79.5 & 112.0 & 142.0 & 173.5 & 204.5 & 236.5 \\
+    \hline
+    \end{tabular}
+\end{table}
+
+
+%insert graf n af t
 
 \end{document}
