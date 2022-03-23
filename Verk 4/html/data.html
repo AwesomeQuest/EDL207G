@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>data</title><meta name="generator" content="MATLAB 9.11"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-03-21"><meta name="DC.source" content="data.m"><style type="text/css">
+      --><title>data</title><meta name="generator" content="MATLAB 9.11"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-03-22"><meta name="DC.source" content="data.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -121,9 +121,9 @@ v_r = [0.576 -0.432 0.328 -0.24 0.176 -0.128 0.096 -0.072];
 terror = t.*err;
 v_rerror = v_r.*err;
 
-<span class="comment">% figure(2);</span>
+figure(2);
 
-<span class="comment">% errorbar(t,v_r, v_rerror,v_rerror,terror,terror);</span>
+errorbar(t,v_r, v_rerror,v_rerror,terror,terror);
 
 t_mdl = linspace(0,2.4e-4,1e5);
 b = R/(2*L)
@@ -140,17 +140,23 @@ Andl = solve([eq1 eq2], [A l]);
 lambda = double(Andl.l)
 A = double(Andl.A)
 
-f2  = @(p) p(1) * sin(p(2) * t_mdl - p(3)) .* exp(-p(4) * t_mdl);
-<span class="comment">%      v_r(1)*1.19                      b*1.7</span>
-p20 = [A            omega_0     0   lambda]
+f2 = @(p) p(1) * sin(p(2) * t - p(3)) .* exp(-p(4) * t);
+f2_mdl = @(p) p(1) * sin(p(2) * t_mdl - p(3)) .* exp(-p(4) * t_mdl);
+
+f3 = @(p) p(1) .* sin(p(2) .* t - p(3)) .* exp(-p(4) .* t) + p(5) .* cos(p(6) .* t - p(7)) .* exp(p(8) .* t) + p(9);
+f3_mdl = @(p) p(1) .* sin(p(2) .* t_mdl - p(3)) .* exp(-p(4) .* t_mdl) + p(5) .* cos(p(6) .* t_mdl - p(7)) .* exp(p(8) .* t_mdl) + p(9);
+
+p20 = [A	omega_0	0   lambda]
+p30 = [A	omega_0	0	lambda		0	0	0	0	0 ]
+p = fminsearch(@(p) norm(f2(p) - v_r), p20)
 
 hold <span class="string">on</span>;
-<span class="comment">% plot(t_mdl, f2(p20));</span>
+plot(t_mdl, f2_mdl(p));
 hold <span class="string">off</span>;
 
 xlabel(<span class="string">'[s]'</span>)
 ylabel(<span class="string">'[V]'</span>)
-legend(<span class="string">'M&aelig;lt'</span>, <span class="string">'Best fit, for p(1)&amp;p(7)'</span>)
+legend(<span class="string">'M&aelig;lt'</span>, <span class="string">'Best fit from ext. eq.'</span>)
 </pre><pre class="codeoutput">b =
         5500
 omega_0 =
@@ -163,6 +169,13 @@ A =
    6.7090e-01
 p20 =
    6.7090e-01   1.0000e+05            0   9.5053e+03
+p30 =
+  Columns 1 through 6
+   6.7090e-01   1.0000e+05            0   9.5053e+03            0            0
+  Columns 7 through 9
+            0            0            0
+p =
+   6.6687e-01   9.7579e+04  -1.6271e-02   9.0503e+03
 </pre><img vspace="5" hspace="5" src="data_02.png" alt=""> <h2 id="8"><i>2</i></h2><pre class="codeinput">n = 0:0.5:3.5;
 x0 = linspace(0, 2.49e-4);
 y0 = polyval(polyfit(t,n,1), x0);
@@ -172,7 +185,7 @@ errorbar(t,n,zeros(1,8),zeros(1,8),terror,terror,<span class="string">'b-'</span
 hold <span class="string">on</span>;
 plot(x0,y0,<span class="string">'r--'</span>, <span class="string">'LineWidth'</span>, 0.1)
 yyaxis <span class="string">right</span>
-plot(t_mdl, f2(p20),<span class="string">'g-'</span>,<span class="string">'LineWidth'</span>,0.1);
+plot(t_mdl, f2_mdl(p),<span class="string">'g-'</span>,<span class="string">'LineWidth'</span>,0.1);
 errorbar(t,v_r, v_rerror,v_rerror,terror,terror,<span class="string">'k-'</span>,<span class="string">'LineWidth'</span>,0.1);
 
 hold <span class="string">off</span>;
@@ -183,7 +196,7 @@ ylabel(<span class="string">'[n]'</span>)
 
 gca.YColor = <span class="string">'k'</span>;
 
-legend(<span class="string">'M&aelig;lt'</span>, <span class="string">'Best fit'</span>, <span class="string">'Best fit, for p(1)&amp;p(7)'</span>, <span class="string">'M&aelig;lt'</span>, <span class="string">'Position'</span>,[0.5 0.7 0.1 0.2])
+legend(<span class="string">'M&aelig;lt'</span>, <span class="string">'Best fit'</span>, <span class="string">'Best fit'</span>, <span class="string">'M&aelig;lt'</span>, <span class="string">'Position'</span>,[0.5 0.7 0.1 0.2])
 yyaxis <span class="string">right</span>
 
 gca.YColor = <span class="string">'b'</span>;
@@ -244,9 +257,9 @@ v_r = [0.576 -0.432 0.328 -0.24 0.176 -0.128 0.096 -0.072];
 terror = t.*err;
 v_rerror = v_r.*err;
 
-% figure(2);
+figure(2);
 
-% errorbar(t,v_r, v_rerror,v_rerror,terror,terror); 
+errorbar(t,v_r, v_rerror,v_rerror,terror,terror); 
 
 t_mdl = linspace(0,2.4e-4,1e5);
 b = R/(2*L)
@@ -263,17 +276,23 @@ Andl = solve([eq1 eq2], [A l]);
 lambda = double(Andl.l)
 A = double(Andl.A)
 
-f2  = @(p) p(1) * sin(p(2) * t_mdl - p(3)) .* exp(-p(4) * t_mdl);
-%      v_r(1)*1.19                      b*1.7
-p20 = [A            omega_0     0   lambda]
+f2 = @(p) p(1) * sin(p(2) * t - p(3)) .* exp(-p(4) * t);
+f2_mdl = @(p) p(1) * sin(p(2) * t_mdl - p(3)) .* exp(-p(4) * t_mdl);
+
+f3 = @(p) p(1) .* sin(p(2) .* t - p(3)) .* exp(-p(4) .* t) + p(5) .* cos(p(6) .* t - p(7)) .* exp(p(8) .* t) + p(9);
+f3_mdl = @(p) p(1) .* sin(p(2) .* t_mdl - p(3)) .* exp(-p(4) .* t_mdl) + p(5) .* cos(p(6) .* t_mdl - p(7)) .* exp(p(8) .* t_mdl) + p(9);
+
+p20 = [A	omega_0	0   lambda]
+p30 = [A	omega_0	0	lambda		0	0	0	0	0 ]
+p = fminsearch(@(p) norm(f2(p) - v_r), p20)
 
 hold on;
-% plot(t_mdl, f2(p20));
+plot(t_mdl, f2_mdl(p));
 hold off;
 
 xlabel('[s]')
 ylabel('[V]')
-legend('Mælt', 'Best fit, for p(1)&p(7)')
+legend('Mælt', 'Best fit from ext. eq.')
 
 %% _2_
 n = 0:0.5:3.5;
@@ -285,7 +304,7 @@ errorbar(t,n,zeros(1,8),zeros(1,8),terror,terror,'b-','LineWidth',0.1);
 hold on;
 plot(x0,y0,'rREPLACE_WITH_DASH_DASH', 'LineWidth', 0.1)
 yyaxis right
-plot(t_mdl, f2(p20),'g-','LineWidth',0.1);
+plot(t_mdl, f2_mdl(p),'g-','LineWidth',0.1);
 errorbar(t,v_r, v_rerror,v_rerror,terror,terror,'k-','LineWidth',0.1); 
 
 hold off;
@@ -296,7 +315,7 @@ ylabel('[n]')
 
 gca.YColor = 'k';
 
-legend('Mælt', 'Best fit', 'Best fit, for p(1)&p(7)', 'Mælt', 'Position',[0.5 0.7 0.1 0.2])
+legend('Mælt', 'Best fit', 'Best fit', 'Mælt', 'Position',[0.5 0.7 0.1 0.2])
 yyaxis right
 
 gca.YColor = 'b';

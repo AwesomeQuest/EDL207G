@@ -38,14 +38,14 @@ legend('Mælt', 'V_0e^{-kt}')
 R = 110;
 L = 10e-3;
 
-t = [16 48 79.5 112 142 173.5 204.5 236.5]*1e-6;
+t = ([16 48 79.5 112 142 173.5 204.5 236.5]+2)*1e-6;
 v_r = [0.576 -0.432 0.328 -0.24 0.176 -0.128 0.096 -0.072];
 terror = t.*err;
 v_rerror = v_r.*err;
 
-% figure(2);
+figure(2);
 
-% errorbar(t,v_r, v_rerror,v_rerror,terror,terror); 
+errorbar(t,v_r, v_rerror,v_rerror,terror,terror); 
 
 t_mdl = linspace(0,2.4e-4,1e5);
 b = R/(2*L)
@@ -62,17 +62,23 @@ Andl = solve([eq1 eq2], [A l]);
 lambda = double(Andl.l)
 A = double(Andl.A)
 
-f2  = @(p) p(1) * sin(p(2) * t_mdl - p(3)) .* exp(-p(4) * t_mdl);
-%      v_r(1)*1.19                      b*1.7
-p20 = [A            omega_0     0   lambda]
+f2 = @(p) p(1) * sin(p(2) * t - p(3)*0) .* exp(-p(4) * t);
+f2_mdl = @(p) p(1) * sin(p(2) * t_mdl - p(3)) .* exp(-p(4) * t_mdl);
+
+f3 = @(p) p(1) .* sin(p(2) .* t - p(3)) .* exp(-p(4) .* t) + p(5) .* cos(p(6) .* t - p(7)) .* exp(p(8) .* t) + p(9);
+f3_mdl = @(p) p(1) .* sin(p(2) .* t_mdl - p(3)) .* exp(-p(4) .* t_mdl) + p(5) .* cos(p(6) .* t_mdl - p(7)) .* exp(p(8) .* t_mdl) + p(9);
+
+p20 = [A	omega_0	0   lambda]
+p30 = [A	omega_0	0	lambda		0	0	0	0	0 ]
+p = fminsearch(@(p) norm(f2(p) - v_r), p20)
 
 hold on;
-% plot(t_mdl, f2(p20));
+plot(t_mdl, f2_mdl(p));
 hold off;
 
 xlabel('[s]')
 ylabel('[V]')
-legend('Mælt', 'Best fit, for p(1)&p(7)')
+legend('Mælt', 'Best fit from ext. eq.')
 
 %% _2_
 n = 0:0.5:3.5;
@@ -84,7 +90,7 @@ errorbar(t,n,zeros(1,8),zeros(1,8),terror,terror,'b-','LineWidth',0.1);
 hold on;
 plot(x0,y0,'r--', 'LineWidth', 0.1)
 yyaxis right
-plot(t_mdl, f2(p20),'g-','LineWidth',0.1);
+plot(t_mdl, f2_mdl(p),'g-','LineWidth',0.1);
 errorbar(t,v_r, v_rerror,v_rerror,terror,terror,'k-','LineWidth',0.1); 
 
 hold off;
@@ -95,7 +101,7 @@ ylabel('[n]')
 
 gca.YColor = 'k';
 
-legend('Mælt', 'Best fit', 'Best fit, for p(1)&p(7)', 'Mælt', 'Position',[0.5 0.7 0.1 0.2])
+legend('Mælt', 'Best fit', 'Best fit', 'Mælt', 'Position',[0.5 0.7 0.1 0.2])
 yyaxis right
 
 gca.YColor = 'b';
@@ -104,3 +110,7 @@ ylabel('[V]')
 
 n = 1:0.5:4.5;
 mesOmega_e = 2*pi./t.*(n+1/4)
+% mesOmega_eErr = pi*(4*n+1).*(2.*t.^2).*terror
+mesOmega_eErr = mesOmega_e*err
+omega_e1 = (p(2)^2 - p(4)^2)^0.5
+omega_e2 = (omega_0^2 - b^2)^0.5
