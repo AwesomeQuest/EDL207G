@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1648053088 "c:/Users/torfi/Documents/Skoli/V2022/EDL207G/Verk 4/rcl.tex" "rcl.pdf" "rcl" 1648053092
-  "c:/Users/torfi/Documents/Skoli/V2022/EDL207G/Verk 4/rcl.tex" 1648053086 9139 1f27b4b8da28973b28d6ee33ea7857ee ""
+["pdflatex"] 1648073330 "c:/Users/torfi/Documents/Skoli/V2022/EDL207G/Verk 4/rcl.tex" "rcl.pdf" "rcl" 1648073336
+  "c:/Users/torfi/Documents/Skoli/V2022/EDL207G/Verk 4/rcl.tex" 1648073325 9007 e113edd44d95fc2480d0cb04a4fc7a56 ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1631558776 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1631559687 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1631559285 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -219,9 +219,9 @@
   "html//data_03.png" 1647967197 25581 25e5fb051074f22d89f80dd9802431d8 ""
   "html//mynd1.png" 1647965715 116526 cd58771e5b866f0021c5dc6c18b81c43 ""
   "html//mynd2.png" 1647965692 122299 438f8e8dce697ee8cf0bf8e028c6b721 ""
-  "rcl.aux" 1648053091 1987 2fca9affdd06a9f2e5d7a6b738eaec01 "pdflatex"
-  "rcl.out" 1648053091 695 554ed2e2ef7138d0fa1dc2587af35fac "pdflatex"
-  "rcl.toc" 1648053091 780 6a1d39edcf7b151b8c823428a5d28749 "pdflatex"
+  "rcl.aux" 1648073335 1987 2fca9affdd06a9f2e5d7a6b738eaec01 "pdflatex"
+  "rcl.out" 1648073335 695 554ed2e2ef7138d0fa1dc2587af35fac "pdflatex"
+  "rcl.toc" 1648073335 780 6a1d39edcf7b151b8c823428a5d28749 "pdflatex"
   (generated)
   "rcl.aux"
   "rcl.log"
