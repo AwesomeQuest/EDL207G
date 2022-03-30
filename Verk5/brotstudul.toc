@@ -1,0 +1,8 @@
+\babel@toc {icelandic}{}\relax 
+\contentsline {section}{\numberline {1}Inngangur}{2}{section.1}%
+\contentsline {section}{\numberline {2}Tilraun}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}}{3}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Niðurstaða}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Tilraun 1}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Tilraun 2}{4}{subsection.3.2}%

@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc} \usepackage[icelandic]{babel}
+\usepackage{latexsym,amssymb,amsmath}
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage[absolute,overlay]{textpos}
+\newcounter{marknumber}
+\pgfplotsset{
+    error bars/every nth mark/.style={
+        /pgfplots/error bars/draw error bar/.prefix code={
+            \pgfmathtruncatemacro\marknumbercheck{mod(floor(\themarknumber/2),#1)}
+            \ifnum\marknumbercheck=0
+            \else
+                \begin{scope}[opacity=0]
+            \fi
+        },
+        /pgfplots/error bars/draw error bar/.append code={
+            \ifnum\marknumbercheck=0
+            \else
+                \end{scope}
+            \fi
+            \stepcounter{marknumber}    
+        }
+    }
+}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+\usepackage{hyperref, color}
+\hypersetup{
+    colorlinks=true,
+    linktoc=all,
+    linkcolor=blue,
+}
+
+\begin{document}
+    
+\centerline{\bf \Huge EÐL207G Lokaskýrsla}
+\centerline{\bf \large Bylgueiginleikar Ljóss}
+\centerline{\bf Torfi Þorgrímsson}
+
+\tableofcontents
+\newpage
+
+
+
+\end{document}
