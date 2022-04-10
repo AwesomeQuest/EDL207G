@@ -1,0 +1,517 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>E&ETH;L207G</title><meta name="generator" content="MATLAB 9.11"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-04-10"><meta name="DC.source" content="data.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>E&ETH;L207G</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">pure data</a></li><li><a href="#2">tilraun 1</a></li><li><a href="#3">tilraun 2</a></li><li><a href="#5">trash</a></li><li><a href="#7">tilraun 3</a></li><li><a href="#8">tilraun 4</a></li><li><a href="#9">Tilraun 1 &uacute;treikningar</a></li><li><a href="#11">Tilraun 2 &uacute;treikningar</a></li><li><a href="#12">tilraun 3 &uacute;treikningar</a></li><li><a href="#13">tilraun 4 &uacute;treikningar</a></li></ul></div><h2 id="1">pure data</h2><pre class="codeinput">u = symunit;
+nm = double(separateUnits(unitConvert(u.nm, u.m)));
+cm = double(separateUnits(unitConvert(u.cm, u.m)));
+mm = double(separateUnits(unitConvert(u.mm, u.m)));
+uA = double(separateUnits(unitConvert(u.uA, u.A)));
+
+rulercmW = 705; <span class="comment">% 8cm -29cm = 21cm</span>
+pix2mm = rulercmW/2100*mm;
+</pre><h2 id="2">tilraun 1</h2><pre class="codeinput">findMidl1 = @(p) p(ceil(end/2));
+cntr1pix2mm = @(p) (p-findMidl1(p))*pix2mm;
+
+tilraun1 = [62 255 374 490 682];
+tilraun1 = cntr1pix2mm(tilraun1)
+
+err = (1*mm + pix2mm)*ones(1,5);
+</pre><pre class="codeoutput">tilraun1 =
+  Columns 1 through 3
+   -104.742857142857e-003   -39.9500000000000e-003    0.00000000000000e+000
+  Columns 4 through 5
+    38.9428571428571e-003    103.400000000000e-003
+</pre><h2 id="3">tilraun 2</h2><pre class="codeinput">findMidl2 = @(p) (p(end/2)+p(end/2+1))/2;
+cntr2pix2mm = @(p) (p-findMidl2(p))*pix2mm;
+
+tilraun2_025 = [266 293 320 346 376 400 427 454];
+tilraun2_025 = cntr2pix2mm(tilraun2_025)
+</pre><pre class="codeoutput">tilraun2_025 =
+  Columns 1 through 3
+   -31.8928571428571e-003   -22.8285714285714e-003   -13.7642857142857e-003
+  Columns 4 through 6
+   -5.03571428571429e-003    5.03571428571429e-003    13.0928571428571e-003
+  Columns 7 through 8
+    22.1571428571429e-003    31.2214285714286e-003
+</pre><pre class="codeinput">tilraun2_05 = [327 342 356 369 382 395];
+tilraun2_05 = cntr2pix2mm(tilraun2_05)
+</pre><pre class="codeoutput">tilraun2_05 =
+  Columns 1 through 3
+   -11.9178571428571e-003   -6.88214285714286e-003   -2.18214285714286e-003
+  Columns 4 through 6
+    2.18214285714286e-003    6.54642857142857e-003    10.9107142857143e-003
+</pre><h2 id="5">trash</h2><pre class="codeinput">tilraun2_075 = [235 279 326 406 448 493];
+tilraun2_075 = cntr2pix2mm(tilraun2_075)
+</pre><pre class="codeoutput">tilraun2_075 =
+  Columns 1 through 3
+   -43.9785714285714e-003   -29.2071428571429e-003   -13.4285714285714e-003
+  Columns 4 through 6
+    13.4285714285714e-003    27.5285714285714e-003    42.6357142857143e-003
+</pre><pre class="codeinput">tilraun2_1 = [172 221 270 371 421 468];
+tilraun2_1 = cntr2pix2mm(tilraun2_1)
+
+tilraun2 = {tilraun2_025', tilraun2_05' , tilraun2_075' , tilraun2_1'}
+</pre><pre class="codeoutput">tilraun2_1 =
+  Columns 1 through 3
+   -49.8535714285714e-003   -33.4035714285714e-003   -16.9535714285714e-003
+  Columns 4 through 6
+    16.9535714285714e-003    33.7392857142857e-003    49.5178571428571e-003
+tilraun2 =
+  1x4 cell array
+    {8x1 double}    {6x1 double}    {6x1 double}    {6x1 double}
+</pre><h2 id="7">tilraun 3</h2><pre class="codeinput">tilraun3 = [59 159 259 456 553 648];
+tilraun3 = cntr2pix2mm(tilraun3)
+</pre><pre class="codeoutput">tilraun3 =
+  Columns 1 through 3
+   -100.210714285714e-003   -66.6392857142857e-003   -33.0678571428571e-003
+  Columns 4 through 6
+    33.0678571428571e-003    65.6321428571429e-003    97.5250000000000e-003
+</pre><h2 id="8">tilraun 4</h2><pre class="codeinput">degMarker = 0:10:180;
+tilraun4 = [109.08 78.6 50.15 26.72 10.38 3.16 5.4 17.79 38.97 64.81 95.38 121.48 164.36 164.14 171 169.45 157.37 138.72 112.17]*uA;
+</pre><h2 id="9">Tilraun 1 &uacute;treikningar</h2><pre class="codeinput">L = 9*cm;
+Lerr = 0.1*cm;
+d = 1880*nm;
+
+n = -2:2;
+<span class="comment">% skrifa&eth;</span>
+<span class="comment">% x_n = [ 9.1	3.55	0	-3.5	-9.3 ]*cm;</span>
+<span class="comment">% x_nerr = 0.05*cm;</span>
+
+<span class="comment">% pixle m&aelig;lt-</span>
+slopeError = @(z,w,zerr,werr) -polyfit([z(1)-zerr(1) z(end)+zerr(end)],[w(1)+werr(1) w(end)-werr(end)],1) + polyfit([z(1)+zerr(1) z(end)-zerr(end)],[w(1)-werr(1) w(end)+werr(end)],1);
+
+sin_thFind = @(x,l) x.*(l^2 +x.^2).^-0.5;
+sin_therrFind = @(x,l,xerr,lerr) l*(l^2*lerr^2+x.^2.*xerr.^2).^0.5.*(x.^2+l^2).^-1.5;
+
+
+sin_th = sin_thFind(tilraun1,L)
+sin_therr = sin_therrFind(tilraun1,L,err,Lerr)
+
+figure
+errorbar(-2:2, sin_th,sin_therr,sin_therr,zeros(1,5),zeros(1,5))
+
+xlabel(<span class="string">"Bylgju toppa n&uacute;mer [n]"</span>)
+ylabel(<span class="string">'sin \theta'</span>)
+
+b = abs([sin_th(1)-sin_th(5) 	sin_th(2)-sin_th(4)])
+c = [4 						2 ];
+berr = [(sin_therr(1)^2+sin_therr(5)^2)^0.5 (sin_therr(2)^2+sin_therr(4)^2)^0.5];
+hrough = d*b./c
+hrougherr = d./c.*berr
+
+htrue = polyfit(n, d*sin_th, 1);
+htrue = htrue(1)
+htrueerr = slopeError(n,d*sin_th,zeros(1,5), d*sin_therr)
+
+lambda = d.*sin_th./n
+lambdaerr = d./n.*sin_therr
+</pre><pre class="codeoutput">sin_th =
+  Columns 1 through 3
+   -758.467419877006e-003   -405.714401757031e-003    0.00000000000000e+000
+  Columns 4 through 5
+    397.116792491347e-003    754.291339383777e-003
+sin_therr =
+  Columns 1 through 3
+    5.68479415056302e-003    9.86303365242739e-003    11.1111111111111e-003
+  Columns 4 through 5
+    9.92066249720475e-003    5.75949389548982e-003
+b =
+    1.51275875926078e+000    802.831194248377e-003
+hrough =
+    710.996616852568e-009    754.661322593475e-009
+hrougherr =
+    3.80347785212968e-009    13.1498903518182e-009
+htrue =
+    719.729558000750e-009
+htrueerr =
+    10.7576307632898e-009    140.435520462133e-012
+lambda =
+  Columns 1 through 3
+    712.959374684386e-009    762.743075303218e-009                      NaN
+  Columns 4 through 5
+    746.579569883732e-009    709.033859020751e-009
+lambdaerr =
+  Columns 1 through 3
+   -5.34370650152924e-009   -18.5425032665635e-009                      Inf
+  Columns 4 through 5
+    18.6508454947449e-009    5.41392426176043e-009
+</pre><img vspace="5" hspace="5" src="data_01.png" alt=""> <p>hrough er best</p><pre class="codeinput">lambda = hrough(1);
+lambdaerr = hrougherr(1);
+</pre><h2 id="11">Tilraun 2 &uacute;treikningar</h2><pre class="codeinput">L = 310*cm;
+Lerr = 0.5*cm;
+
+
+drough = zeros(1,4);
+drougherr = zeros(1,4);
+
+c = [8 6 6 6]
+
+<span class="keyword">for</span> index = 1:4
+	sin_k = sin_thFind(tilraun2{index},L)
+	sin_kerr = sin_therrFind(tilraun2{index}, L,(1*mm + pix2mm)*ones(length(tilraun2{index}),1),Lerr)
+	b = sin_k(end) - sin_k(1)
+	berr = (sin_kerr(1)^2+sin_kerr(end)^2)^0.5
+	drough(index) = lambda/(b/c(index));
+	drougherr = drough*(berr/b);
+<span class="keyword">end</span>
+
+sinerrr = sin_therrFind(tilraun2{1}, L,(1*mm + pix2mm)*ones(length(tilraun2{1}),1),Lerr);
+figure
+errorbar(-3.5:3.5,sin_thFind(tilraun2{1},L),sinerrr,sinerrr,zeros(1,8),zeros(1,8))
+xlabel(<span class="string">"Bylgju toppa n&uacute;mer [n]"</span>)
+ylabel(<span class="string">'sin \theta'</span>)
+
+sinerrr = sin_therrFind(tilraun2{2}, L,(1*mm + pix2mm)*ones(length(tilraun2{2}),1),Lerr);
+figure
+errorbar(-2.5:2.5,sin_thFind(tilraun2{2},L),sinerrr,sinerrr,zeros(1,6),zeros(1,6))
+xlabel(<span class="string">"Bylgju toppa n&uacute;mer [n]"</span>)
+ylabel(<span class="string">'sin \theta'</span>)
+
+
+drough
+drougherr
+</pre><pre class="codeoutput">c =
+  Columns 1 through 3
+    8.00000000000000e+000    6.00000000000000e+000    6.00000000000000e+000
+  Column 4
+    6.00000000000000e+000
+sin_k =
+   -10.2874740173660e-003
+   -7.36385563383941e-003
+   -4.44004839962830e-003
+   -1.62442181991091e-003
+    1.62442181991091e-003
+    4.22346463529410e-003
+    7.14728287613613e-003
+    10.0709178192853e-003
+sin_kerr =
+    1.61265327771236e-003
+    1.61277515553937e-003
+    1.61285666539155e-003
+    1.61289699361383e-003
+    1.61289699361383e-003
+    1.61286109698057e-003
+    1.61278257782556e-003
+    1.61266368974903e-003
+b =
+    20.3583918366513e-003
+berr =
+    2.28064349917986e-003
+sin_k =
+   -3.84444163586047e-003
+   -2.22004061210485e-003
+   -703.916876296136e-006
+    703.916876296136e-006
+    2.11174644341982e-003
+    3.51956345426215e-003
+sin_kerr =
+    1.61286831913012e-003
+    1.61289158548871e-003
+    1.61290205553605e-003
+    1.61290205553605e-003
+    1.61289269342477e-003
+    1.61287396947908e-003
+b =
+    7.36400509012263e-003
+berr =
+    2.28094424663928e-003
+sin_k =
+   -14.1852085544442e-003
+   -9.42124084471140e-003
+   -4.33175659366125e-003
+    4.33175659366125e-003
+    8.87983421716450e-003
+    13.7521556206124e-003
+sin_kerr =
+    1.61242800692225e-003
+    1.61269359729782e-003
+    1.61285890888090e-003
+    1.61285890888090e-003
+    1.61271699784238e-003
+    1.61245657813359e-003
+b =
+    27.9373641750566e-003
+berr =
+    2.28033775872644e-003
+sin_k =
+   -16.0797180673159e-003
+   -10.7747201242788e-003
+   -5.46881222701791e-003
+    5.46881222701791e-003
+    10.8829960068817e-003
+    15.9714648523087e-003
+sin_kerr =
+    1.61229260297919e-003
+    1.61262904109315e-003
+    1.61283258976068e-003
+    1.61283258976068e-003
+    1.61262350296366e-003
+    1.61230079656610e-003
+b =
+    32.0511829196246e-003
+berr =
+    2.28013185939522e-003
+drough =
+  Columns 1 through 3
+    279.392055151452e-006    579.301568766891e-006    152.698002373617e-006
+  Column 4
+    133.098978337657e-006
+drougherr =
+  Columns 1 through 3
+    19.8760441326075e-006    41.2117071140690e-006    10.8629868966524e-006
+  Column 4
+    9.46870577980532e-006
+</pre><img vspace="5" hspace="5" src="data_02.png" alt=""> <img vspace="5" hspace="5" src="data_03.png" alt=""> <h2 id="12">tilraun 3 &uacute;treikningar</h2><pre class="codeinput">sin_th = sin_thFind(tilraun3,L);
+sin_therr = sin_therrFind(tilraun3,L,(1*mm + pix2mm)*ones(1,length(tilraun3)),Lerr);
+b = sin_th(end)-sin_th(1)
+berr = (sin_therr(1)^2+sin_therr(end)^2)^0.5
+droughhar = lambda/(b/6)
+droughharerr = droughhar*(berr/b)
+
+figure
+errorbar(-2.5:2.5,sin_th,sin_therr,sin_therr,zeros(1,6),zeros(1,6))
+xlabel(<span class="string">"Bylgju toppa n&uacute;mer [n]"</span>)
+ylabel(<span class="string">'sin \theta'</span>)
+</pre><pre class="codeoutput">b =
+    63.7532811461383e-003
+berr =
+    2.27759589879529e-003
+droughhar =
+    66.9138846569595e-006
+droughharerr =
+    2.39050895149706e-006
+</pre><img vspace="5" hspace="5" src="data_04.png" alt=""> <h2 id="13">tilraun 4 &uacute;treikningar</h2><pre class="codeinput">tilraun4err = tilraun4.*0.05;
+degMarkererr = 5*ones(1, length(degMarker));
+
+figure
+errorbar(degMarker, tilraun4, tilraun4err,tilraun4err, degMarkererr,degMarkererr); hold <span class="string">on</span>;
+plot(0:180,max(tilraun4)*cos(pi/180.*((0:180)+40)).^2); hold <span class="string">off</span>;
+xlabel(<span class="string">"Skautunar hli&eth;run [Gr&aacute;&eth;ur]"</span>)
+ylabel(<span class="string">"Styrkur [Amper]"</span>)
+axis([-6 186 0 1.8e-4])
+</pre><img vspace="5" hspace="5" src="data_05.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% EÐL207G
+%% pure data
+u = symunit;
+nm = double(separateUnits(unitConvert(u.nm, u.m)));
+cm = double(separateUnits(unitConvert(u.cm, u.m)));
+mm = double(separateUnits(unitConvert(u.mm, u.m)));
+uA = double(separateUnits(unitConvert(u.uA, u.A)));
+
+rulercmW = 705; % 8cm -29cm = 21cm
+pix2mm = rulercmW/2100*mm;
+%% tilraun 1
+findMidl1 = @(p) p(ceil(end/2));
+cntr1pix2mm = @(p) (p-findMidl1(p))*pix2mm;
+
+tilraun1 = [62 255 374 490 682];
+tilraun1 = cntr1pix2mm(tilraun1)
+
+err = (1*mm + pix2mm)*ones(1,5);
+
+%% tilraun 2
+findMidl2 = @(p) (p(end/2)+p(end/2+1))/2;
+cntr2pix2mm = @(p) (p-findMidl2(p))*pix2mm;
+
+tilraun2_025 = [266 293 320 346 376 400 427 454];
+tilraun2_025 = cntr2pix2mm(tilraun2_025)
+%%
+tilraun2_05 = [327 342 356 369 382 395];
+tilraun2_05 = cntr2pix2mm(tilraun2_05)
+%% trash
+tilraun2_075 = [235 279 326 406 448 493];
+tilraun2_075 = cntr2pix2mm(tilraun2_075)
+%%
+tilraun2_1 = [172 221 270 371 421 468];
+tilraun2_1 = cntr2pix2mm(tilraun2_1)
+
+tilraun2 = {tilraun2_025', tilraun2_05' , tilraun2_075' , tilraun2_1'}
+
+%% tilraun 3
+tilraun3 = [59 159 259 456 553 648];
+tilraun3 = cntr2pix2mm(tilraun3)
+
+%% tilraun 4
+degMarker = 0:10:180;
+tilraun4 = [109.08 78.6 50.15 26.72 10.38 3.16 5.4 17.79 38.97 64.81 95.38 121.48 164.36 164.14 171 169.45 157.37 138.72 112.17]*uA;
+
+%% Tilraun 1 útreikningar
+
+L = 9*cm;
+Lerr = 0.1*cm;
+d = 1880*nm;
+
+n = -2:2;
+% skrifað
+% x_n = [ 9.1	3.55	0	-3.5	-9.3 ]*cm;
+% x_nerr = 0.05*cm;
+
+% pixle mælt-
+slopeError = @(z,w,zerr,werr) -polyfit([z(1)-zerr(1) z(end)+zerr(end)],[w(1)+werr(1) w(end)-werr(end)],1) + polyfit([z(1)+zerr(1) z(end)-zerr(end)],[w(1)-werr(1) w(end)+werr(end)],1);
+
+sin_thFind = @(x,l) x.*(l^2 +x.^2).^-0.5;
+sin_therrFind = @(x,l,xerr,lerr) l*(l^2*lerr^2+x.^2.*xerr.^2).^0.5.*(x.^2+l^2).^-1.5;
+
+
+sin_th = sin_thFind(tilraun1,L)
+sin_therr = sin_therrFind(tilraun1,L,err,Lerr)
+
+figure
+errorbar(-2:2, sin_th,sin_therr,sin_therr,zeros(1,5),zeros(1,5))
+
+xlabel("Bylgju toppa númer [n]")
+ylabel('sin \theta')
+
+b = abs([sin_th(1)-sin_th(5) 	sin_th(2)-sin_th(4)])
+c = [4 						2 ];
+berr = [(sin_therr(1)^2+sin_therr(5)^2)^0.5 (sin_therr(2)^2+sin_therr(4)^2)^0.5];
+hrough = d*b./c
+hrougherr = d./c.*berr
+
+htrue = polyfit(n, d*sin_th, 1);
+htrue = htrue(1)
+htrueerr = slopeError(n,d*sin_th,zeros(1,5), d*sin_therr)
+
+lambda = d.*sin_th./n
+lambdaerr = d./n.*sin_therr
+
+
+%%
+% hrough er best
+
+lambda = hrough(1);
+lambdaerr = hrougherr(1);
+
+
+%% Tilraun 2 útreikningar
+
+L = 310*cm;
+Lerr = 0.5*cm;
+
+
+drough = zeros(1,4);
+drougherr = zeros(1,4);
+
+c = [8 6 6 6]
+
+for index = 1:4
+	sin_k = sin_thFind(tilraun2{index},L)
+	sin_kerr = sin_therrFind(tilraun2{index}, L,(1*mm + pix2mm)*ones(length(tilraun2{index}),1),Lerr)
+	b = sin_k(end) - sin_k(1)
+	berr = (sin_kerr(1)^2+sin_kerr(end)^2)^0.5
+	drough(index) = lambda/(b/c(index));
+	drougherr = drough*(berr/b);
+end
+
+sinerrr = sin_therrFind(tilraun2{1}, L,(1*mm + pix2mm)*ones(length(tilraun2{1}),1),Lerr);
+figure
+errorbar(-3.5:3.5,sin_thFind(tilraun2{1},L),sinerrr,sinerrr,zeros(1,8),zeros(1,8))
+xlabel("Bylgju toppa númer [n]")
+ylabel('sin \theta')
+
+sinerrr = sin_therrFind(tilraun2{2}, L,(1*mm + pix2mm)*ones(length(tilraun2{2}),1),Lerr);
+figure
+errorbar(-2.5:2.5,sin_thFind(tilraun2{2},L),sinerrr,sinerrr,zeros(1,6),zeros(1,6))
+xlabel("Bylgju toppa númer [n]")
+ylabel('sin \theta')
+
+
+drough
+drougherr
+
+
+%% tilraun 3 útreikningar
+
+sin_th = sin_thFind(tilraun3,L);
+sin_therr = sin_therrFind(tilraun3,L,(1*mm + pix2mm)*ones(1,length(tilraun3)),Lerr);
+b = sin_th(end)-sin_th(1)
+berr = (sin_therr(1)^2+sin_therr(end)^2)^0.5
+droughhar = lambda/(b/6)
+droughharerr = droughhar*(berr/b)
+
+figure
+errorbar(-2.5:2.5,sin_th,sin_therr,sin_therr,zeros(1,6),zeros(1,6))
+xlabel("Bylgju toppa númer [n]")
+ylabel('sin \theta')
+
+%% tilraun 4 útreikningar
+
+tilraun4err = tilraun4.*0.05;
+degMarkererr = 5*ones(1, length(degMarker));
+
+figure
+errorbar(degMarker, tilraun4, tilraun4err,tilraun4err, degMarkererr,degMarkererr); hold on;
+plot(0:180,max(tilraun4)*cos(pi/180.*((0:180)+40)).^2); hold off;
+xlabel("Skautunar hliðrun [Gráður]")
+ylabel("Styrkur [Amper]")
+axis([-6 186 0 1.8e-4])
+
+##### SOURCE END #####
+--></body></html>

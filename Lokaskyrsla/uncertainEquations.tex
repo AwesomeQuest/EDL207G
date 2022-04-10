@@ -1,0 +1,24 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc} \usepackage[icelandic]{babel}
+\usepackage{latexsym,amssymb,amsmath}
+\usepackage{float}
+
+\begin{document}
+	\begin{table}[H]
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\bf Addition/Subtraction & $z=x\pm y$ & $\Delta z = \sqrt{(\Delta x)^2 + (\Delta y)^2 }$ \\
+			\hline
+			\bf Multiplication/Division & $z=xy$ & $\Delta z = |xy| \sqrt{(\Delta x)^2 + (\Delta y)^2 }$ \\
+			\hline
+			\bf Multiplication by a Constant & $z=cx$ & $\Delta z = |c|\Delta x$ \\
+			\hline
+			\bf Power & $z=x^y$ & $\Delta z = |n|x^{n-1}\Delta x$ \\
+			\hline
+			\bf Function & $z=f(x,y)$ & $\Delta z = \sqrt{\left(\dfrac{\partial f}{\partial x}\right)^2+\left(\dfrac{\partial f}{\partial L}\right)^2}$ \\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	 
+\end{document}
