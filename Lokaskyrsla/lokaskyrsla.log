@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.2.22)  10 APR 2022 15:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.2.22)  10 APR 2022 18:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -660,46 +660,46 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <html/teikning1.png, id=102, 351.714pt x 277.9986pt>
 File: html/teikning1.png Graphic file (type png)
 <use html/teikning1.png>
-Package pdftex.def Info: html/teikning1.png  used on input line 116.
+Package pdftex.def Info: html/teikning1.png  used on input line 115.
 (pdftex.def)             Requested size: 175.85657pt x 138.99895pt.
 <html/teikning2.png, id=103, 351.714pt x 277.9986pt>
 File: html/teikning2.png Graphic file (type png)
 <use html/teikning2.png>
-Package pdftex.def Info: html/teikning2.png  used on input line 117.
+Package pdftex.def Info: html/teikning2.png  used on input line 116.
 (pdftex.def)             Requested size: 175.85657pt x 138.99895pt.
  [2] [3 <./html/teikning1.png (PNG copy)> <./html/teikning2.png (PNG copy)>]
 <html/polMynd.jpg, id=118, 865.2325pt x 375.4025pt>
 File: html/polMynd.jpg Graphic file (type jpg)
 <use html/polMynd.jpg>
-Package pdftex.def Info: html/polMynd.jpg  used on input line 251.
+Package pdftex.def Info: html/polMynd.jpg  used on input line 250.
 (pdftex.def)             Requested size: 346.08687pt x 150.15834pt.
  [4 <./html/polMynd.jpg>]
 <html/data_01.png, id=124, 562.1pt x 421.575pt>
 File: html/data_01.png Graphic file (type png)
 <use html/data_01.png>
-Package pdftex.def Info: html/data_01.png  used on input line 289.
+Package pdftex.def Info: html/data_01.png  used on input line 288.
 (pdftex.def)             Requested size: 281.04932pt x 210.78697pt.
  [5 <./html/data_01.png (PNG copy)>]
 <html/data_02.png, id=131, 562.1pt x 421.575pt>
 File: html/data_02.png Graphic file (type png)
 <use html/data_02.png>
-Package pdftex.def Info: html/data_02.png  used on input line 311.
+Package pdftex.def Info: html/data_02.png  used on input line 310.
 (pdftex.def)             Requested size: 281.04932pt x 210.78697pt.
 <html/data_03.png, id=132, 562.1pt x 421.575pt>
 File: html/data_03.png Graphic file (type png)
 <use html/data_03.png>
-Package pdftex.def Info: html/data_03.png  used on input line 322.
+Package pdftex.def Info: html/data_03.png  used on input line 321.
 (pdftex.def)             Requested size: 281.04932pt x 210.78697pt.
  [6 <./html/data_02.png (PNG copy)> <./html/data_03.png (PNG copy)>]
 <html/data_04.png, id=137, 562.1pt x 421.575pt>
 File: html/data_04.png Graphic file (type png)
 <use html/data_04.png>
-Package pdftex.def Info: html/data_04.png  used on input line 338.
+Package pdftex.def Info: html/data_04.png  used on input line 337.
 (pdftex.def)             Requested size: 281.04932pt x 210.78697pt.
 <html/data_05.png, id=138, 562.1pt x 421.575pt>
 File: html/data_05.png Graphic file (type png)
 <use html/data_05.png>
-Package pdftex.def Info: html/data_05.png  used on input line 352.
+Package pdftex.def Info: html/data_05.png  used on input line 351.
 (pdftex.def)             Requested size: 281.04932pt x 210.78697pt.
  [7 <./html/data_04.png (PNG copy)> <./html/data_05.png (PNG copy)>] (./lokaskyrsla.aux)
 Package rerunfilecheck Info: File `lokaskyrsla.out' has not changed.
@@ -712,9 +712,9 @@ Here is how much of TeX's memory you used:
  50968 multiletter control sequences out of 15000+600000
  481930 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,6n,106p,875b,735s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,6n,106p,881b,735s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on lokaskyrsla.pdf (7 pages, 392971 bytes).
+Output written on lokaskyrsla.pdf (7 pages, 392903 bytes).
 PDF statistics:
  212 PDF objects out of 1000 (max. 8388607)
  165 compressed objects within 2 object streams
